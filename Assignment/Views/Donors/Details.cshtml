@@ -1,0 +1,57 @@
+﻿@model Assignment.Models.Donor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Donor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorDetail.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorDetail.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorDetail.PhonenUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorDetail.PhonenUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bloodgroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bloodgroup)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

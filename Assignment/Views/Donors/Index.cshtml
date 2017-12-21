@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Assignment.Models.Donor>
+
+@{
+    ViewBag.Title = "Donors";
+}
+
+<h2>Donors</h2>
+
+<p>     @if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Create New", "Create")
+}
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bloodgroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonorDetail.Email)
+        </th>
+        <th>
+            Phone Number
+        </th>
+        @if (Request.IsAuthenticated)
+           {
+
+        <th>Actions</th>
+            }
+    </tr>
+
+@foreach (var item in Model) {
+    <tr><td>        
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bloodgroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonorDetail.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonorDetail.PhonenUMBER)
+        </td>
+    @if (Request.IsAuthenticated)
+    {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ContactId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ContactId }) |
+            @Html.ActionLink("Editcontact", "../DonorDetails/Edit", new { id = item.ContactId })|
+            @if (User.IsInRole("Administrator"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.ContactId })}|
+              
+
+        </td>
+    }
+    </tr>
+}
+
+</table>
